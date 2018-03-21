@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		Hugged.io - no more monkey coding
+	</title>
+	<meta name="description" content="Build beautiful, responsive, readable interfaces.">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="author" content="@mrmrs">
+	<meta name="viewport" content="width=Device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<style>
+		body,
+		html {
+			font-family: 'avenir next', roboto, ubuntu, 'avenir next', -apple-system, avenir, roboto, noto, ubuntu, 'helvetica neue', helvetica, arial, sans-serif;
+		}
+
+		.blue {
+			color: #0074D9;
+		}
+
+		.bg-blue {
+			background-color: #0074D9;
+		}
+
+		.bg-gray-blue {
+			background-color: #A9B7C0;
+		}
+
+		.bg-minty {
+			background-color: #C7D8C6;
+		}
+
+		.fill-rg {
+			fill: url(#rg);
+		}
+
+		div:hover svg * {
+			fill: url(#rg);
+		}
+
+		.bg-grad-02 {
+			background-color: #E4E4E1;
+			background-image: radial-gradient(at top center, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.03) 100%), linear-gradient(to top, rgba(255, 255, 255, 0.1) 0%, rgba(143, 152, 157, 0.60) 100%);
+			background-blend-mode: normal, multiply;
+		}
+
+		.bg-grad-menu {
+			background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+		}
+
+		.bg-grad-tempting-azure {
+			background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+		}
+
+		.bg-grad-rare-wind {
+			background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+		}
+
+		/* Hamburger Icon -> https://codepen.io/JoseRosario/pen/BWqMwK */
+
+		.wrapper-menu {
+			width: 30px;
+			height: 30px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			cursor: pointer;
+			transition: transform 330ms ease-out;
+		}
+
+		.wrapper-menu.open {
+			transform: rotate(-45deg);
+		}
+
+		.line-menu {
+			background-color: #fff;
+			border-radius: 5px;
+			width: 100%;
+			height: 2px;
+		}
+
+		.line-menu.half {
+			width: 50%;
+		}
+
+		.line-menu.start {
+			transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+			transform-origin: right;
+		}
+
+		.open .line-menu.start {
+			transform: rotate(-90deg) translateX(3px);
+		}
+
+		.line-menu.end {
+			align-self: flex-end;
+			transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+			transform-origin: left;
+		}
+
+		.open .line-menu.end {
+			transform: rotate(-90deg) translateX(-3px);
+		}
+
+		.b--shadow {
+			color: rgba(0, 0, 0, 0.7);
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0px -1px 10px rgba(255, 255, 255, 0.4);
+		}
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body class="w-100">
+	<header>
+		<div class="w-100-l bg-black-80 shadow-3">
+			<div class="f-l pa3 white-80 f3">
+				<a class="dim white no-underline" href="/">HUGGED <i class="fa fa-heart-o" aria-hidden="true"></i></a>
+			</div>
+			<div class="absolute top-1 right-1 db db-m dn-ns" style="z-index:9999 !important;">
+				<div class="wrapper-menu">
+					<div class="line-menu half start"></div>
+					<div class="line-menu"></div>
+					<div class="line-menu half end"></div>
+				</div>
+			</div>
+			<div class="menu-box white w5 absolute top-1 right-1 bg-grad-menu shadow-1 br3 pa3 dn dn-m db-ns">
+				HUGGED <i class="fa fa-heart-o" aria-hidden="true"></i>
+				<ul class="list pl0">
+					<li>
+						<a href="#rewarding" class="dim white no-underline">
+							<div class="f6 lh-copy shadow-1 pa2 mv2 br2 grow white">
+								... provides Developers highly rewarding jobs
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#working" class="dim white no-underline">
+							<div class="f6 lh-copy shadow-1 pa2 mv2 br2 grow white">
+								... works hard for Devs
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#exploit" class="dim white no-underline">
+							<div class="f6 lh-copy shadow-1 pa2 mv2 br2 grow white">
+								... doesn't let them exploit you
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#professional" class="dim white no-underline">
+							<div class="f6 lh-copy shadow-1 pa2 mv2 br2 grow white">
+								... gives meaning to your professional life
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main class="w-100 bt b--black-10 bg-white">
+		<section class="w-100">
+			<a name="rewarding">
+			<article class="pb4 bg-grad-tempting-azure bb b--black-40">
+				<div class="ph3 ph5-ns">
+					<div class="cf mw9 center">
+						<div class="pb3 pb4-ns pt4 pt5-ns mt4 black-70 fl-l w-50-l">
+							<h1 class="f4 fw6 f2-ns lh-title measure mt0">
+								We provide Developers with highly rewarding, well-paid jobs
+              </h1>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								You deserve a job where you can make a real difference. <span class="b--shadow fw5">You deserve a job where you are rewarded excellently</span>, because as a Developer you can create products and services that have almost no marginal costs. As
+								a good software Developer you are incredibly valuable to the company you work for.
+							</p>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								<span class="b--shadow fw5">The fact that you are this valuable is no longer funny when you are underpaid</span>, just so that others get incredibly rich because of your work. With hugged.io you can change this simply by letting us provide you
+								with a job that really values your work. <a class="blue no-underline fw5" href="javascript:void(Tawk_API.toggle())">Just contact us. We'll do the work!</a>
+							</p>
+						</div>
+						<div class="fl-l w-50-l tl pt3 pt4-m pt5-l">
+							<div class="">
+								<svg width="0" height="0">
+                      <radialGradient id="rg" r="150%" cx="30%" cy="107%">
+                        <stop stop-color="#fdf497" offset="0" />
+                        <stop stop-color="#fdf497" offset="0.05" />
+                        <stop stop-color="#fd5949" offset="0.45" />
+                        <stop stop-color="#d6249f" offset="0.6" />
+                        <stop stop-color="#285AEB" offset="0.9" />
+                      </radialGradient>
+                    </svg>
+
+								<svg width="300" height="300" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" class="fill-rg"><path d="M1472 896q0-117-45.5-223.5t-123-184-184-123-223.5-45.5-223.5 45.5-184 123-123 184-45.5 223.5 45.5 223.5 123 184 184 123 223.5 45.5 223.5-45.5 184-123 123-184 45.5-223.5zm276 277q-4 15-20 20l-292 96v306q0 16-13 26-15 10-29 4l-292-94-180 248q-10 13-26 13t-26-13l-180-248-292 94q-14 6-29-4-13-10-13-26v-306l-292-96q-16-5-20-20-5-17 4-29l180-248-180-248q-9-13-4-29 4-15 20-20l292-96v-306q0-16 13-26 15-10 29-4l292 94 180-248q9-12 26-12t26 12l180 248 292-94q14-6 29 4 13 10 13 26v306l292 96q16 5 20 20 5 16-4 29l-180 248 180 248q9 12 4 29z"/></svg>
+							</div>
+							<div class="mt5 tr fl">
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    I'm a Developer. Give me a great job already!
+                  </a>
+								</div>
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    We need Devs. Could you help?
+                  </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<a name="working">
+			<article class="pb4 bg-grad-rare-wind bb b--black-40">
+				<div class="ph3 ph5-ns">
+					<div class="cf mw9 center tc-m">
+						<div class="pb3 pb4-ns pt4 pt5-ns mt4 black-70 fl-l w-50-l">
+							<h1 class="f4 fw6 f2-ns lh-title measure mt0">
+                We're working hard for you, the Devs
+              </h1>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								After you have sent us your e-mail or an internet profile (link) without any obligation, we may ask you a few questions and talk to you, but <span class="b--shadow fw5">most of all we will start working for you. We are going to stretch to great length for you because we know the value of your work</span>								and will not rest until you finally profit from this value as you have actually earned it for years. Let us help you finally reach all your goals.
+							</p>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								<span class="b--shadow fw5">Unlike other recruiters or headhunters, we don't see the company as our main customer, but you, the Developer.</span>
+							</p>
+						</div>
+						<div class="fl-l w-50-l tl pt3 pt4-m pt5-l">
+							<div class="">
+								<svg class="fill-rg" width="300" height="300" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 596q0-81-21.5-143t-55-98.5-81.5-59.5-94-31-98-8-112 25.5-110.5 64-86.5 72-60 61.5q-18 22-49 22t-49-22q-24-28-60-61.5t-86.5-72-110.5-64-112-25.5-98 8-94 31-81.5 59.5-55 98.5-21.5 143q0 168 187 355l581 560 580-559q188-188 188-356zm128 0q0 221-229 450l-623 600q-18 18-44 18t-44-18l-624-602q-10-8-27.5-26t-55.5-65.5-68-97.5-53.5-121-23.5-138q0-220 127-344t351-124q62 0 126.5 21.5t120 58 95.5 68.5 76 68q36-36 76-68t95.5-68.5 120-58 126.5-21.5q224 0 351 124t127 344z"/></svg>
+							</div>
+							<div class="mt5 tr fl">
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    I'm a Developer and would love a sane job!
+                  </a>
+								</div>
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    We need Devs. Could you help?
+                  </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<a name="exploit">
+			<article class="pb4 bg-grad-rare-wind bb b--black-40">
+				<div class="ph3 ph5-ns">
+					<div class="cf mw9 center tc-m">
+						<div class="pb3 pb4-ns pt4 pt5-ns mt4 black-70 fl-l w-50-l">
+							<h1 class="f4 fw6 f2-ns lh-title measure mt0">
+                Don't let them exploit you
+              </h1>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								Every day you feel like you're being exploited by a company not valueing your work is a lost day. Lost for you and your loved ones to gain more security and freedom. <span class="b--shadow fw5">Admit it, the only thing that keeps you in such a job is the comfort and maybe even the fear</span>								of being as successful as your potential actually allows you to be.
+							</p>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								<span class="b--shadow fw5">But we at Hugged do not accept that as an excuse. All you have to do is send us your e-mail address or an internet profile</span> so that we can get you a job where you can make the world a better place step by step
+								with more joy and more income.
+							</p>
+						</div>
+						<div class="fl-l w-50-l tl pt3 pt4-m pt5-l">
+							<div class="">
+								<svg class="fill-rg" width="300" height="300" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1024 544v448q0 14-9 23t-23 9h-320q-14 0-23-9t-9-23v-64q0-14 9-23t23-9h224v-352q0-14 9-23t23-9h64q14 0 23 9t9 23zm416 352q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/></svg>
+							</div>
+							<div class="mt5 tr fl">
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    I'm a Developer and would love a sane job!
+                  </a>
+								</div>
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    We need Devs. Could you help?
+                  </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<a name="professional">
+			<article class="pb4 bg-grad-rare-wind bb b--black-40">
+				<div class="ph3 ph5-ns">
+					<div class="cf mw9 center tc-m">
+						<div class="pb3 pb4-ns pt4 pt5-ns mt4 black-70 fl-l w-50-l">
+							<h1 class="f4 fw6 f2-ns lh-title measure mt0">
+								We provide jobs that give meaning to your professional life
+              </h1>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								<span class="b--shadow fw5">You spend about as much time on the job as you sleep and spend in your private life.</span> Therefore, it is only logical to choose your job at least according to the criteria you set in your private life:
+							</p>
+							<ul class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								<li>does the company work ethically?</li>
+								<li>is it ecologically correct?</li>
+								<li>is it doing its share to make the world a better place for us and our descendants?</li>
+								<li>will you yourself be part of a meaningful enterprise?</li>
+							</ul>
+							<p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+								That's right, isn't it? It's high time to <span class="b--shadow fw5">spend your professional life with something meaningful.</span> Especially if it pays you even better in this way than before... Let's get you guys a job like this.
+							</p>
+						</div>
+						<div class="fl-l w-50-l tl pt3 pt4-m pt5-l">
+							<div class="">
+								<svg class="fill-rg" width="300" height="300" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1280 704q0-26-19-45t-45-19q-172 0-318 49.5t-259.5 134-235.5 219.5q-19 21-19 45 0 26 19 45t45 19q24 0 45-19 27-24 74-71t67-66q137-124 268.5-176t313.5-52q26 0 45-19t19-45zm512-198q0 95-20 193-46 224-184.5 383t-357.5 268q-214 108-438 108-148 0-286-47-15-5-88-42t-96-37q-16 0-39.5 32t-45 70-52.5 70-60 32q-43 0-63.5-17.5t-45.5-59.5q-2-4-6-11t-5.5-10-3-9.5-1.5-13.5q0-35 31-73.5t68-65.5 68-56 31-48q0-4-14-38t-16-44q-9-51-9-104 0-115 43.5-220t119-184.5 170.5-139 204-95.5q55-18 145-25.5t179.5-9 178.5-6 163.5-24 113.5-56.5l29.5-29.5 29.5-28 27-20 36.5-16 43.5-4.5q39 0 70.5 46t47.5 112 24 124 8 96z"/></svg>
+							</div>
+							<div class="mt5 tr fl">
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    I'm a Developer and would love a sane job!
+                  </a>
+								</div>
+								<div>
+									<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    We need Devs. Could you help?
+                  </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+	</main>
+
+	<footer class="bg-white black-70 ph3 ph5-ns pv4 pv5-ns bt b--black-10">
+		<div class="mw9 center">
+			<div class="mb5 lh-copy">
+			<a class="black-70 link hover-blue b dib mr3 mb3" href="/" title="Home">
+	      Top
+	    </a>
+			<a class="black-70 link hover-blue b dib mr3 mb3" href="/about/" title="About">
+	      About
+	    </a>
+			<a class="black-70 link hover-blue b dib mr3 mb3" href="javascript:void(Tawk_API.toggle())">
+	      Contact
+	    </a>
+			</div>
+			<div class="mt3">
+				<a class="ba black-70 no-underline grow br2 b inline-flex items-center mr3 mb3 pv2 ph3" href="https://twitter.com/hugged_io" title="Follow us on Twitter">
+					<div class="w2 pv1 pr2">
+						<svg class="fill-rg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.375-1.337.648-2.085.795-.598-.638-1.45-1.036-2.396-1.036-1.812 0-3.282 1.468-3.282 3.28 0 .258.03.51.085.75C5.152 5.39 2.733 4.084 1.114 2.1.83 2.583.67 3.147.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.416-.02-.617-.058.418 1.304 1.63 2.253 3.067 2.28-1.124.88-2.54 1.404-4.077 1.404-.265 0-.526-.015-.783-.045 1.453.93 3.178 1.474 5.032 1.474 6.038 0 9.34-5 9.34-9.338 0-.143-.004-.284-.01-.425.64-.463 1.198-1.04 1.638-1.7z" fill-rule="nonzero"/></svg>
+					</div>
+					<span>Follow @hugged_io</span>
+				</a>
+				<a class="ba black-70 no-underline grow br2 b inline-flex items-center mr3 mb3 pv2 ph3" href="javascript:void(Tawk_API.toggle())" title="Join our Slack Channel">
+					<div class="dib w2 pv1 pr2">
+						<svg class="fill-rg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><g fill-rule="nonzero"><path d="M6.586 7.33l.69 2.057 2.137-.716-.69-2.056-2.137.716z"/><path d="M12.55 9.37l-1.037.347.36 1.073c.145.434-.09.904-.524 1.05-.096.03-.19.045-.287.042-.338-.01-.65-.226-.765-.566l-.36-1.072-2.138.716.36 1.072c.145.435-.09.905-.523 1.05-.096.032-.192.045-.286.043-.34-.01-.65-.226-.764-.566l-.36-1.075-1.037.348c-.096.03-.19.045-.286.042-.34-.008-.65-.226-.765-.565-.146-.434.09-.904.522-1.05L5.7 9.914l-.69-2.058-1.037.347c-.094.032-.19.045-.285.043-.338-.01-.65-.226-.765-.566-.145-.434.09-.904.523-1.05l1.037-.347-.36-1.073c-.145-.434.09-.904.524-1.05.435-.145.905.09 1.05.524l.36 1.072 2.137-.716-.36-1.072c-.144-.435.09-.905.524-1.05.435-.145.906.09 1.05.523l.36 1.075 1.037-.347c.434-.146.904.088 1.05.522.145.434-.09.904-.523 1.05l-1.037.347.69 2.057 1.036-.347c.435-.145.905.09 1.05.523.146.434-.09.904-.522 1.05zm2.78-3.57C13.68.304 11.298-.98 5.8.67.304 2.32-.98 4.7.67 10.2c1.65 5.497 4.03 6.78 9.53 5.13 5.497-1.65 6.78-4.03 5.13-9.53z"/></g></svg>
+					</div>
+					<span>
+          Need help? Just ask!
+        </span>
+				</a>
+			</div>
+			<p class="f6 measure copy lh-copy">
+				Have a question? Need help?
+				Feel free to ask <a class="no-underline fw5 blue" href="javascript:void(Tawk_API.toggle())">right here in the chat</a>. We're here to help you land the job that makes you happy!
+			</p>
+			<small class="f6 measure db lh-copy mt4">
+				Hugged.io is a service that gives hugs to Developers in the form of providing them the jobs they deserve to fullfill their potential.
+		    From the urban dictionary:
+		    <br> <br>
+				<span class="i">
+			    A hug can be between friends, relatives, man and woman, and human and animal, as well as animal to animal. A hug is an expression of warmth and friendliness with arms outstretched around the other.
+				</span>
+		  </small>
+		</div>
+	</footer>
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-55773803-1', 'auto');
+		ga('send', 'pageview');
+
+		var wrapperMenu = document.querySelector('.wrapper-menu');
+		var menuBox = document.querySelector('.menu-box');
+		wrapperMenu.addEventListener('click', function() {
+			wrapperMenu.classList.toggle('open');
+			menuBox.classList.toggle('dn');
+			menuBox.classList.toggle('dn-m');
+		});
+	</script>
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		var Tawk_API = Tawk_API || {},
+			Tawk_LoadStart = new Date();
+		(function() {
+			var s1 = document.createElement("script"),
+				s0 = document.getElementsByTagName("script")[0];
+			s1.async = true;
+			s1.src = 'https://embed.tawk.to/5a9e4ee74b401e45400d70c8/default';
+			s1.charset = 'UTF-8';
+			s1.setAttribute('crossorigin', '*');
+			s0.parentNode.insertBefore(s1, s0);
+		})();
+	</script>
+	<!--End of Tawk.to Script-->
+
+	<!-- cookieBAR -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js"></script>
+	<!-- EOF: cookieBAR -->
+
+</body>
+
+</html>
