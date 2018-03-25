@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		Hugged.io - no more monkey coding
+	</title>
+	<meta name="description" content="Build beautiful, responsive, readable interfaces.">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="author" content="@mrmrs">
+	<meta name="viewport" content="width=Device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<style>
+		body,
+		html {
+			font-family: 'avenir next', roboto, ubuntu, 'avenir next', -apple-system, avenir, roboto, noto, ubuntu, 'helvetica neue', helvetica, arial, sans-serif;
+		}
+
+		.blue {
+			color: #0074D9;
+		}
+
+		.bg-blue {
+			background-color: #0074D9;
+		}
+
+		.bg-gray-blue {
+			background-color: #A9B7C0;
+		}
+
+		.bg-minty {
+			background-color: #C7D8C6;
+		}
+
+		.fill-rg {
+			fill: url(#rg);
+		}
+
+		div:hover svg * {
+			fill: url(#rg);
+		}
+
+		.bg-grad-02 {
+			background-color: #E4E4E1;
+			background-image: radial-gradient(at top center, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.03) 100%), linear-gradient(to top, rgba(255, 255, 255, 0.1) 0%, rgba(143, 152, 157, 0.60) 100%);
+			background-blend-mode: normal, multiply;
+		}
+
+		.bg-grad-menu {
+			background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+		}
+
+		.bg-grad-tempting-azure {
+			background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+		}
+
+		.bg-grad-rare-wind {
+			background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+		}
+
+		.bg-grad-juicy-peach {
+			background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+		}
+
+		/* Hamburger Icon -> https://codepen.io/JoseRosario/pen/BWqMwK */
+
+		.wrapper-menu {
+			width: 30px;
+			height: 30px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			cursor: pointer;
+			transition: transform 330ms ease-out;
+		}
+
+		.wrapper-menu.open {
+			transform: rotate(-45deg);
+		}
+
+		.line-menu {
+			background-color: #fff;
+			border-radius: 5px;
+			width: 100%;
+			height: 2px;
+		}
+
+		.line-menu.half {
+			width: 50%;
+		}
+
+		.line-menu.start {
+			transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+			transform-origin: right;
+		}
+
+		.open .line-menu.start {
+			transform: rotate(-90deg) translateX(3px);
+		}
+
+		.line-menu.end {
+			align-self: flex-end;
+			transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+			transform-origin: left;
+		}
+
+		.open .line-menu.end {
+			transform: rotate(-90deg) translateX(-3px);
+		}
+
+		.b--shadow {
+			color: rgba(0, 0, 0, 0.7);
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0px -1px 10px rgba(255, 255, 255, 0.4);
+		}
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body class="w-100">
+	<header>
+		<div class="w-100-l bg-black-80 shadow-3">
+			<div class="f-l pa3 white-80 f3">
+				<a class="dim white no-underline" href="/">HUGGED <i class="fa fa-heart-o" aria-hidden="true"></i></a>
+			</div>
+			<div class="absolute top-1 right-1 db db-m dn-ns" style="z-index:9999 !important;">
+				<div class="wrapper-menu">
+					<div class="line-menu half start"></div>
+					<div class="line-menu"></div>
+					<div class="line-menu half end"></div>
+				</div>
+			</div>
+			<div class="menu-box white w5 absolute top-1 right-1 bg-grad-menu shadow-1 br3 pa3 dn dn-m db-ns">
+				HUGGED <i class="fa fa-heart-o" aria-hidden="true"></i>
+				<ul class="list pl0">
+					<li>
+						<a href="#janprill" class="dim white no-underline">
+							<div class="f6 lh-copy shadow-1 pa2 mv2 br2 grow white">
+								... is Jan Prill. So: Who is he?
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#imprint" class="dim white no-underline">
+							<div class="f6 lh-copy shadow-1 pa2 mv2 br2 grow white">
+								... has all the fine print for you
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main class="w-100 bt b--black-10 bg-white">
+		<section class="w-100">
+
+			<a name="data-protection">
+				<article class="pb4 bg-grad-juicy-peach bb b--black-40">
+					<div class="ph3 ph5-ns">
+						<div class="cf mw9 center tc-m">
+							<div class="pb3 pb4-ns pt4 pt5-ns mt4 black-70 fl-l w-50-l">
+								<h1 class="f4 fw6 f2-ns lh-title measure mt0">
+                  Data protection declaration
+                </h1>
+
+								<h2 class="f5 fw6 f3-ns lh-title measure mt0">
+                  Data privacy
+                </h2>
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this data protection declaration.
+                </p>
+
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                The use of our website is generally possible without providing personal data. As far as on our sides personal data (for example name, address or e-mail addresses) are raised, this takes place, as far as possible, always on voluntary basis. This data will not be passed on to third parties without your express consent.
+                </p>
+
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                We would like to point out that data transmission over the Internet (e.g. communication by e-mail) can have security gaps. A complete protection of data against access by third parties is not possible.
+                </p>
+
+
+								<h2 class="f5 fw6 f3-ns lh-title measure mt0">
+                  Cookies
+                </h2>
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                Some of the Internet pages use so-called cookies. Cookies do not cause any damage to your computer and do not contain any viruses. Cookies serve to make our website more user-friendly, effective and secure. Cookies are small text files that are stored on your computer and saved by your browser.
+                </p>
+
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                Most of the cookies we use are so-called "session cookies". They are automatically deleted at the end of your visit. Other cookies remain stored on your device until you delete them. These cookies enable us to recognize your browser the next time you visit our website.
+                </p>
+
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                You can set your browser so that you are informed about the setting of cookies and only allow cookies in individual cases, exclude the acceptance of cookies for certain cases or generally and activate the automatic deletion of cookies when closing the browser. When cookies are deactivated, the functionality of this website may be limited.
+                </p>
+
+
+								<h2 class="f5 fw6 f3-ns lh-title measure mt0">
+                  Server log files
+                </h2>
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                The provider of the pages automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are:
+                </p>
+
+                <ul class="lh-copy">
+                <li>Browser type and browser version</li>
+                <li>operating system used</li>
+                <li>referrer URL</li>
+                <li>Host name of the accessing computer</li>
+                <li>Time of the server request</li>
+                </ul>
+
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                This information cannot be assigned to specific individuals. This data is not combined with other data sources. We reserve the right to check this information subsequently if we become aware of any concrete indications of illegal use.
+                </p>
+
+								<h2 class="f5 fw6 f3-ns lh-title measure mt0">
+                  Contact form
+                </h2>
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                If you send us enquiries using the contact form, your details from the enquiry form, including the contact data you provided there, will be stored for the purpose of processing the enquiry and in the event of follow-up questions. We will not pass on this data without your consent.
+                </p>
+
+								<h2 class="f5 fw6 f3-ns lh-title measure mt0">
+                  SSL encoding
+                </h2>
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                This site uses SSL encryption for security reasons and to protect the transmission of confidential content, such as requests you send to us as a site operator. You can recognize an encrypted connection by the fact that the address line of the browser changes from "http://" to "https://" and by the lock symbol in your browser line.
+                </p>
+
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                If SSL encryption is activated, the data you transmit to us cannot be read by third parties.
+                </p>
+
+
+								<h2 class="f5 fw6 f3-ns lh-title measure mt0">
+                  Right to information, deletion, blocking
+                </h2>
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                You have the right to obtain information free of charge at any time about your stored personal data, its origin and recipients and the purpose of data processing as well as the right to correct, block or delete this data. You can contact us at any time at the address given in the imprint if you have any further questions on the subject of personal data.
+                </p>
+
+
+								<h2 class="f5 fw6 f3-ns lh-title measure mt0">
+                  Contradiction advertising mails
+                </h2>
+                <p class="f6 f5-ns fw4 b measure dib-m lh-copy">
+                We herewith object to the use of contact data published within the scope of the imprint obligation to send unsolicited advertising and information material. The operators of these pages expressly reserve the right to take legal action in the event of unsolicited advertising information, such as spam e-mails.
+                </p>
+
+							</div>
+							<div class="fl-l w-50-l tl pt3 pt4-m pt5-l">
+								<div class="">
+									<svg width="0" height="0">
+												<radialGradient id="rg" r="150%" cx="30%" cy="107%">
+													<stop stop-color="#fdf497" offset="0" />
+													<stop stop-color="#fdf497" offset="0.05" />
+													<stop stop-color="#fd5949" offset="0.45" />
+													<stop stop-color="#d6249f" offset="0.6" />
+													<stop stop-color="#285AEB" offset="0.9" />
+												</radialGradient>
+											</svg>
+
+									<svg class="fill-rg" width="300" height="300" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M704 1536l96-448-96-128-128-64zm256 0l128-640-128 64-96 128zm160-1010q-2-4-4-6-10-8-96-8-70 0-167 19-7 2-21 2t-21-2q-97-19-167-19-86 0-96 8-2 2-4 6 2 18 4 27 2 3 7.5 6.5t7.5 10.5q2 4 7.5 20.5t7 20.5 7.5 17 8.5 17 9 14 12 13.5 14 9.5 17.5 8 20.5 4 24.5 2q36 0 59-12.5t32.5-30 14.5-34.5 11.5-29.5 17.5-12.5h12q11 0 17.5 12.5t11.5 29.5 14.5 34.5 32.5 30 59 12.5q13 0 24.5-2t20.5-4 17.5-8 14-9.5 12-13.5 9-14 8.5-17 7.5-17 7-20.5 7.5-20.5q2-7 7.5-10.5t7.5-6.5q2-9 4-27zm416 879q0 121-73 190t-194 69h-874q-121 0-194-69t-73-190q0-61 4.5-118t19-125.5 37.5-123.5 63.5-103.5 93.5-74.5l-90-220h214q-22-64-22-128 0-12 2-32-194-40-194-96 0-57 210-99 17-62 51.5-134t70.5-114q32-37 76-37 30 0 84 31t84 31 84-31 84-31q44 0 76 37 36 42 70.5 114t51.5 134q210 42 210 99 0 56-194 96 7 81-20 160h214l-82 225q63 33 107.5 96.5t65.5 143.5 29 151.5 8 148.5z"/></svg>
+								</div>
+								<div class="mt5 tr fl">
+									<div>
+										<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    I'm a Developer and would love a sane job!
+                  </a>
+									</div>
+									<div>
+										<a class="mt2 f6 fw6 dib ba b--black-20 bg-blue white ph2 ph4-ns pv2 pv3-ns br2 grow no-underline shadow-1" href="javascript:void(Tawk_API.toggle())">
+                    We need Devs. Could you help?
+                  </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+
+		</section>
+	</main>
+
+	<footer class="bg-white black-70 ph3 ph5-ns pv4 pv5-ns bt b--black-10">
+		<div class="mw9 center">
+			<div class="mb5 lh-copy">
+			<a class="black-70 link hover-blue b dib mr3 mb3" href="/" title="Home">
+	      Top
+	    </a>
+			<a class="black-70 link hover-blue b dib mr3 mb3" href="/about/" title="About">
+	      About
+	    </a>
+			<a class="black-70 link hover-blue b dib mr3 mb3" href="/about/legal-notices.html" title="Legal notices">
+	      Legal notices
+	    </a>
+				<a class="black-70 link hover-blue b dib mr3 mb3" href="/about/data-protection.html" title="About">
+	      Data protection
+	    </a>
+			<a class="black-70 link hover-blue b dib mr3 mb3" href="javascript:void(Tawk_API.toggle())">
+	      Contact
+	    </a>
+			</div>
+			<div class="mt3">
+				<a class="ba black-70 no-underline grow br2 b inline-flex items-center mr3 mb3 pv2 ph3" href="https://twitter.com/hugged_io" title="Follow us on Twitter">
+					<div class="w2 pv1 pr2">
+						<svg class="fill-rg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.375-1.337.648-2.085.795-.598-.638-1.45-1.036-2.396-1.036-1.812 0-3.282 1.468-3.282 3.28 0 .258.03.51.085.75C5.152 5.39 2.733 4.084 1.114 2.1.83 2.583.67 3.147.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.416-.02-.617-.058.418 1.304 1.63 2.253 3.067 2.28-1.124.88-2.54 1.404-4.077 1.404-.265 0-.526-.015-.783-.045 1.453.93 3.178 1.474 5.032 1.474 6.038 0 9.34-5 9.34-9.338 0-.143-.004-.284-.01-.425.64-.463 1.198-1.04 1.638-1.7z" fill-rule="nonzero"/></svg>
+					</div>
+					<span>Follow @hugged_io</span>
+				</a>
+				<a class="ba black-70 no-underline grow br2 b inline-flex items-center mr3 mb3 pv2 ph3" href="javascript:void(Tawk_API.toggle())" title="Join our Slack Channel">
+					<div class="dib w2 pv1 pr2">
+						<svg class="fill-rg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><g fill-rule="nonzero"><path d="M6.586 7.33l.69 2.057 2.137-.716-.69-2.056-2.137.716z"/><path d="M12.55 9.37l-1.037.347.36 1.073c.145.434-.09.904-.524 1.05-.096.03-.19.045-.287.042-.338-.01-.65-.226-.765-.566l-.36-1.072-2.138.716.36 1.072c.145.435-.09.905-.523 1.05-.096.032-.192.045-.286.043-.34-.01-.65-.226-.764-.566l-.36-1.075-1.037.348c-.096.03-.19.045-.286.042-.34-.008-.65-.226-.765-.565-.146-.434.09-.904.522-1.05L5.7 9.914l-.69-2.058-1.037.347c-.094.032-.19.045-.285.043-.338-.01-.65-.226-.765-.566-.145-.434.09-.904.523-1.05l1.037-.347-.36-1.073c-.145-.434.09-.904.524-1.05.435-.145.905.09 1.05.524l.36 1.072 2.137-.716-.36-1.072c-.144-.435.09-.905.524-1.05.435-.145.906.09 1.05.523l.36 1.075 1.037-.347c.434-.146.904.088 1.05.522.145.434-.09.904-.523 1.05l-1.037.347.69 2.057 1.036-.347c.435-.145.905.09 1.05.523.146.434-.09.904-.522 1.05zm2.78-3.57C13.68.304 11.298-.98 5.8.67.304 2.32-.98 4.7.67 10.2c1.65 5.497 4.03 6.78 9.53 5.13 5.497-1.65 6.78-4.03 5.13-9.53z"/></g></svg>
+					</div>
+					<span>
+          Need help? Just ask!
+        </span>
+				</a>
+			</div>
+			<p class="f6 measure copy lh-copy">
+				Have a question? Need help? Feel free to ask <a class="no-underline fw5 blue" href="javascript:void(Tawk_API.toggle())">right here in the chat</a>. We're here to help you land the job that makes you happy!
+			</p>
+			<small class="f6 measure db lh-copy mt4">
+		    Hugged.io is a service that gives hugs to Developers in the form of providing them the jobs they deserve to fullfill their potential.
+		    From the urban dictionary:
+		    <br> <br>
+				<span class="i">
+			    A hug can be between friends, relatives, man and woman, and human and animal, as well as animal to animal. A hug is an expression of warmth and friendliness with arms outstretched around the other.
+				</span>
+		  </small>
+		</div>
+	</footer>
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-55773803-1', 'auto');
+		ga('send', 'pageview');
+
+		var wrapperMenu = document.querySelector('.wrapper-menu');
+		var menuBox = document.querySelector('.menu-box');
+		wrapperMenu.addEventListener('click', function() {
+			wrapperMenu.classList.toggle('open');
+			menuBox.classList.toggle('dn');
+			menuBox.classList.toggle('dn-m');
+		});
+	</script>
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		var Tawk_API = Tawk_API || {},
+			Tawk_LoadStart = new Date();
+		(function() {
+			var s1 = document.createElement("script"),
+				s0 = document.getElementsByTagName("script")[0];
+			s1.async = true;
+			s1.src = 'https://embed.tawk.to/5a9e4ee74b401e45400d70c8/default';
+			s1.charset = 'UTF-8';
+			s1.setAttribute('crossorigin', '*');
+			s0.parentNode.insertBefore(s1, s0);
+		})();
+	</script>
+	<!--End of Tawk.to Script-->
+
+	<!-- cookieBAR -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js"></script>
+	<!-- EOF: cookieBAR -->
+
+</body>
+
+</html>
