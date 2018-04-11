@@ -401,10 +401,17 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 
-	<!--Start of Tawk.to Script-->
+	<!--Start of Menu and Tawk.to Script-->
 	<script type="text/javascript">
 	$(function() {
-		console.log("ready");
+		var wrapperMenu = document.querySelector('.wrapper-menu');
+		var menuBox = document.querySelector('.menu-box');
+		wrapperMenu.addEventListener('click', function() {
+			wrapperMenu.classList.toggle('open');
+			menuBox.classList.toggle('dn');
+			menuBox.classList.toggle('dn-m');
+		});
+
 		var Tawk_API = Tawk_API || {},
 			Tawk_LoadStart = new Date();
 		(function() {

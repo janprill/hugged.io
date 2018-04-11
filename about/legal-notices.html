@@ -411,8 +411,17 @@ A hug can be between friends, relatives, man and woman, and human and animal, as
 		</div>
 	</footer>
 
-	<!--Start of Tawk.to Script-->
+	<!--Start of Menu and Tawk.to Script-->
 	<script type="text/javascript">
+	$(function() {
+		var wrapperMenu = document.querySelector('.wrapper-menu');
+		var menuBox = document.querySelector('.menu-box');
+		wrapperMenu.addEventListener('click', function() {
+			wrapperMenu.classList.toggle('open');
+			menuBox.classList.toggle('dn');
+			menuBox.classList.toggle('dn-m');
+		});
+
 		var Tawk_API = Tawk_API || {},
 			Tawk_LoadStart = new Date();
 		(function() {
@@ -424,9 +433,10 @@ A hug can be between friends, relatives, man and woman, and human and animal, as
 			s1.setAttribute('crossorigin', '*');
 			s0.parentNode.insertBefore(s1, s0);
 		})();
+	});
 	</script>
 	<!--End of Tawk.to Script-->
-
+	
 	<!-- cookieBAR -->
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js"></script>
 	<!-- EOF: cookieBAR -->
